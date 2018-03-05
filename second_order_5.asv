@@ -1,0 +1,16 @@
+R15 = 510;
+L = 1;
+C = 0.47 * 10^-6;
+
+num = [1];
+den = [L*C R15*C 1];
+
+H = tf(num,den);
+t = 0:0.001:0.025;
+n = size(t);
+u = ones(n);
+a = 1.05 * ones(n);
+b = 0.95 * ones(n);
+[ys,ts]=lsim(H,u,t);
+plot(t,u,'-.',ts,ys,'--',t,a,t,b);
+%%legend('entre u','sortie  y')

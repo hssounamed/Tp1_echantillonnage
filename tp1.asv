@@ -1,0 +1,5 @@
+num = [1];
+den = [2 1];
+H = tf(num,den)
+%step c'est la reponse indicielle
+figure(1),step(2*H)
